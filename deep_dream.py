@@ -78,7 +78,7 @@ class DeepDream:
         successive_shapes = [original_shape]
         num_octaves = hyperparameters.num_octaves
         for i in range(1,num_octaves):
-            shape = tuple([int(dim/ (hyperparameters.octave_scale ** i)) for dim in original_shape ])
+            shape = tuple([int(dim /(hyperparameters.octave_scale ** i)) for dim in original_shape ])
             successive_shapes.append(shape)
         successive_shapes = successive_shapes[::-1] #Reversing the list
         shrunk_original_img = tf.image.resize(self.input_image,successive_shapes[0])
